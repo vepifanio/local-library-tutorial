@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const AuthorSchema = new Schema(
     {
-        firstName: { type: String, required: true, maxlength: 100 },
-        familyName: { type: String, required: true, maxlength: 100 },
+        first_name: { type: String, required: true, maxlength: 100 },
+        family_name: { type: String, required: true, maxlength: 100 },
         date_of_birth: Date,
         date_of_death: Date,
 
@@ -14,7 +14,7 @@ const AuthorSchema = new Schema(
 
 // Virtual type fo author's full name
 AuthorSchema.virtual('name').get(() => {
-    return `${this.familyName}, ${this.firstName}`;
+    return `${this.family_name}, ${this.first_name}`;
 });
 
 // Virtual type for author's lifespan
