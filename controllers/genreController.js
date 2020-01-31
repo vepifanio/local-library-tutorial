@@ -7,7 +7,7 @@ exports.genre_list = (req, res) => {
 
 // Display detail page for a specific Genre
 exports.genre_detail = (req, res) => {
-    res.sen(`NOT IMPLEMENTED: Genre detail: ${req.params.id}`);
+    res.send(`NOT IMPLEMENTED: Genre detail: ${req.params.id}`);
 };
 
 // Display Genre create form on GET

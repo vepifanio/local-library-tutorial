@@ -1,13 +1,22 @@
 const BookInstance = require('../models/bookinstance');
 
 // Display list of all Book Instances
-exports.bookinstance_list = (req, res) => {
-    res.send('NOT IMPLEMENTED: BookInstance list');
+exports.bookinstance_list = (req, res, next) => {
+    BookInstance.find().populate('book').exec((err, list_bookinstances) => {
+        if (err) { 
+            return next(err); 
+        }
+
+        res.render('bookinstance_list',  { 
+            title: 'Book Instance List',
+            bookinstance_list: list_bookinstances 
+        });
+    });
 };
 
 // Display detail page for a specific Book Instance
 exports.bookinstance_detail = (req, res) => {
-    res.sen(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
+    res.send(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
 };
 
 // Display BookInstance create form on GET
